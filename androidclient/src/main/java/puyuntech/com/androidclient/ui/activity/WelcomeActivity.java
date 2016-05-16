@@ -33,6 +33,7 @@ public class WelcomeActivity extends ActivityDirector {
     RecyclerView.LayoutManager layoutManager;
     @ViewInject(R.id.recycler_view)
     RecyclerView recycler_view;
+    ;
 
     @Override
     public Object getValue(Enum type) {
@@ -84,7 +85,7 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void showTitle() {
-
+        initTitle("欢迎", false);
     }
 
     @Override

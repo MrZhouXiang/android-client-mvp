@@ -2,12 +2,18 @@ package puyuntech.com.androidclient.app.ActivityBuilder.Impl;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.nicodelee.utils.ListUtils;
+import com.nicodelee.utils.StringUtils;
+
+import org.xutils.view.annotation.ViewInject;
 
 import java.util.List;
 
+import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.BuildHelper;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
 import puyuntech.com.androidclient.app.AppDataUtils;
@@ -26,6 +32,11 @@ import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
  * 修改者 zx
  **/
 public abstract class ActivityDirector extends BaseAct implements BuildHelper, IUpdateUIListener {
+    @ViewInject(R.id.toolbar)
+    protected Toolbar toolbar;
+    @ViewInject(R.id.title_tv)
+    protected TextView title_tv;
+
     protected boolean isHasMore = true;
     protected int pageSize = AppDataUtils.pageSize;
     private InitBuilder initBuilder;//建造者
@@ -76,5 +87,53 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         }
         if (mSwipeLayout != null)
             mSwipeLayout.setRefreshing(false);
+    }
+
+
+    /**
+     * 初始化头部
+     *
+     * @param title
+     * @param showLeft
+     */
+    @Override
+    public void initTitle(String title, boolean showLeft) {
+        //标题展示
+        initTitle(title, showLeft, -1);
+    }
+
+    @Override
+    public void initTitle(String title, boolean showLeft, int leftId) {
+        initTitle(title, showLeft, leftId, false, -1);
+    }
+
+    @Override
+    public void initTitle(String title, boolean showLeft, int leftId, boolean showRight, int rightId) {
+        //标题展示
+        if (title_tv != null) {
+            title_tv.setText(title);
+        }
+        //返回按钮展示
+        if (toolbar == null)
+            return;
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle(StringUtils.getNotNullStr(title));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(showLeft);// // 给左上角图标的左边加上一个返回的图标 。
+        getSupportActionBar().setDisplayShowHomeEnabled(showLeft);//使左上角图标是否显示，如果设成false，则没有程序图标，仅仅就个标题，否则，显示应用程序图标，对应id为Android.R.id.home，对应ActionBar.DISPLAY_SHOW_HOME
+        if (showLeft) {
+            //需要展示左边图标
+            if (leftId != -1) {
+                getSupportActionBar().setHomeAsUpIndicator(leftId);
+            } else {
+                getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_return);
+            }
+        }
+        if (showRight) {
+            //需要展示右边图标
+            if (rightId != -1) {
+            } else {
+            }
+        }
     }
 }

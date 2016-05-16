@@ -9,7 +9,7 @@ package puyuntech.com.androidclient.app.ActivityBuilder;
  * 修改描述
  * 修改者 Administrator
  **/
-public interface BuildHelper extends InitHelper, RefreshHelper, ListenerHelper {
+public interface BuildHelper extends InitHelper, ViewShowHelper, ListenerHelper {
 
 
 }

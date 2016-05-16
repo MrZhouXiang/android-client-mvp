@@ -1,7 +1,7 @@
 package puyuntech.com.androidclient.app.ActivityBuilder;
 
 
-import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
+import android.support.v7.widget.Toolbar;
 
 /**
  * 作者 Administrator
@@ -41,6 +41,7 @@ public interface InitHelper {
      */
     void showTitle();
 
+
     /**
      * 初始化视图
      * 给视图动态赋值
@@ -57,7 +58,6 @@ public interface InitHelper {
      * 获取网络数据
      */
     void getDataNet();
-
 
 
 }

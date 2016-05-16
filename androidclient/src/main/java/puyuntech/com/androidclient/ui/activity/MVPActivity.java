@@ -2,6 +2,7 @@ package puyuntech.com.androidclient.ui.activity;
 
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -27,6 +28,9 @@ public class MVPActivity extends ActivityDirector {
 
     @ViewInject(R.id.pwd_tv)
     EditText pwd_tv;
+
+    @ViewInject(R.id.name_pwd_show)
+    TextView name_pwd_show;
 
     @Event(R.id.test_bt)
     private void clickEvent(final View view) {
@@ -57,7 +61,16 @@ public class MVPActivity extends ActivityDirector {
 
     @Override
     public void updateUI(Object params, Enum type) {
-
+        MVPPresenter.UpdateUIType type1 = (MVPPresenter.UpdateUIType) type;
+        switch (type1) {
+            case SHOW_NAME_PWD:
+                //展示输入的用户名密码
+                String show = (String) params;
+                name_pwd_show.setText(show);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
