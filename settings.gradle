@@ -1,4 +1,4 @@
-include ':beihai'
+include ':androidclient'
 include(':libraries:swipelistview')
 include(':libraries:androidpnLib')
 include(':libraries:SwipeBackLayoutLibary')
