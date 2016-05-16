@@ -1,0 +1,8 @@
+include ':beihai'
+include(':libraries:swipelistview')
+include(':libraries:androidpnLib')
+include(':libraries:SwipeBackLayoutLibary')
+include(':libraries:CommLib')
+include(':libraries:ImageViewLibrary')
+include(':libraries:PullToRefreshLib')
+include(':libraries:library')

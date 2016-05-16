@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">北海网格化管理</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">用户名格式错误</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码错误</string>
+    <string name="error_field_required">不能为空</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="server_error">服务器出问题啦！错误原因：</string>
+    <string name="server_busy">亲~服务器太忙啦!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_activity_v2">MainActivityV2</string>
+    <string name="title_activity_deatil">DeatilActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts."
+
+
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_activity_v3">欢迎您，小小</string>
+    <string name="title_activity_ren_wu">任务管理</string>
+    <string name="title_activity_shi_jian">事件管理</string>
+    <string name="title_activity_add_shi_jian">事件新增</string>
+    <string name="title_activity_add_ren_kou">人口登记</string>
+    <string name="title_activity_tongxunlu">通讯录</string>
+    <string name="select_pianqu_wangge">按片区网格选择</string>
+    <string name="lianxifangshi">联系方式</string>
+    <string name="null_inster">请输入有效文字</string>
+
+    <string name="title_activity_login_activity_v3">登录</string>
+    <string name="no_data_find">没有更多数据啦~</string>
+
+    <string name="address">Server Address:</string>
+    <string name="port">Server Port:</string>
+    <string name="secret">Shared Secret:</string>
+    <string name="connect">连接!</string>
+    <string name="disconnected">没有连接</string>
+    <string name="connected">已连接</string>
+    <string name="connecting">正在连接</string>
+    <string name="loading">玩命加载中。。。</string>
+
+    <string name="news_title_1">习近平: 准确把握和抓好我国发展战略重点</string>
+    <string name="news_title_2">南京诞生新地王：楼面地价42561元/㎡</string>
+    <string name="news_title_3">news3</string>
+    <string name="news_content_1">
+        "央广网北京1月31日消息 据中国之声《新闻和报纸摘要》报道，中共中央政治局1月29号就“十三五”时期我国经济社会发展的战略重点进行第三十次集体学习。中共中央总书记习近平在主持学习时强调，发展战略重点，是“十三五”时期我国发展的“衣领子”、“牛鼻子”。抓准、抓住、抓好战略重点，是保证“十三五”发展开好头、起好步的关键，是保证全面建成小康社会决胜阶段获得全胜的关键。 这次中央政治局集体学习，由中央政治局同志自学并交流工作体会，刘延东、李源潮、汪洋、张春贤、韩正就这个问题作了重点发言。\n"
+　　     "习近平在主持学习时发表了讲话。他指出，“四个全面”战略布局，既有战略目标，也有战略举措，每一个“全面”都具有重大战略意义，是我们党在新形势下治国理政的总方略，是事关党和国家长远发展的总战略。创新、协调、绿色、开放、共享的发展理念，集中体现了“十三五”乃至更长时期我国的发展思路、发展方向、发展着力点，是管全局、管根本、管长远的导向。要抓住能够带动五大发展理念贯彻落实的重点工作，统筹推动五大发展理念贯彻落实。\n"
+　　     "习近平指出，宏观政策要稳、产业政策要准、微观政策要活、改革政策要实、社会政策要托底的政策组合，是当前推动经济社会发展的五大支柱性政策。贯彻落实这五大政策，都要注意突出重点。推进结构性改革特别是供给侧结构性改革，是“十三五”的一个发展战略重点。要在适度扩大总需求的同时，着力推进供给侧结构性改革，重点是去产能、去库存、去杠杆、降成本、补短板，增强供给结构对需求变化的适应性和灵活性，推动我国社会生产力水平实现整体跃升。\n"
+　　     "习近平强调，经济社会发展中的短板特别是主要短板，是影响如期实现全面建成小康社会目标的主要因素，必须尽快把这些短板补齐。脱贫开发工作是我们的一个突出短板，要举全国之力抓好，确保到2020年农村贫困人口全部脱贫。各地区各部门各单位各方面都要在深入调查研究的基础上明确自己工作方面的短板是什么，以扎实的思路、举措尽快把短板补齐，避免各种各样的短板牵扯我们的工作、影响既定目标的实现。要增强忧患意识、未雨绸缪、抓紧工作，确保我国发展的连续性和稳定性。各级党委和政府要增强责任感和自觉性，提高风险监测防控 。\n"</string>
+    <string name="news_content_2">昨日下午，在河西政务服务中心的土拍现场，国土局举行了羊年的最后一拍，9幅地块进行出让，现场开发商、媒体已经站不下，不少人被挤到外面从大屏看土拍直播。虽然有一幅地块流拍，但并不影响其他地块的火热，一天成就两对王炸，诞生了四个地王：上海建工将南京房价带入了一个新的时代，备受瞩目的河西中部地块G68成为南京新地王，楼面地价定格在了42561元/平方米，超过了南京目前在售的99%的新房房价。\n
+　　记者手记
+　　地王落槌的时候
+　　我没有鼓掌
+　　两个星期以前，记者和10位业内媒体记者曾经对河西中部G68地块的楼面地价进行了一次竞猜，面对地块条件不如它的保利地王24026元/平方米的价格，大家写下的价格都在3万元/平方米之内，不过在昨天土拍之前，大家再谈起这块地，都一起无奈地笑笑：3万以内是合理上限，然而这可能只是我们的美好想象，并没有什么用。
+　　在南京新地王诞生的时候，现场有过好几次惊呼，两次都是因为招商地产的举牌，一次加价3亿元，另一次则干脆加价7亿元，从33亿元直接跳到40亿元，现场主持人幽默地说：“请等一等大家。”我们看着楼面地价不断被刷新，融创和上海建工交替举牌，有位开发商发了一个朋友圈：堵了一个路口，南京地价已经破3万了。现场主持人不时地幽默一下：请开发商理性一些，南京房子不会比上海贵的！当楼面地价破4万元的时候，现场的媒体已经合不上下巴，最终当上海建工以64.8亿元，楼面地价42561元/平方米拿下这块土地的时候，现场响起了掌声，祝贺上海建工拿下这幅地块，然而我并没有鼓掌。\n
+　　2014年，南京人的平均工资是4774元，4.2万元的地价，房价起码也要卖到5万元以上，也就是说，一套100平方米的房子，要五六百万元，南京人买套这个房子，要100年。这是怎样一个房价，这是怎样一个市场。有人说：“南京只有两种购房人，买河西房子的和不买河西房子的。”河西业主说：“欢迎参观我的千万豪宅”，“宁漂”族说：“要不要收拾收拾回老家？”南京人说：“再见！河西！”\n
+　　作为一个房记，作为一个南京人，看到南京最贵的房子要不吃不喝工作100年才能买得起，我真的不想鼓掌，也笑不出来……记者刘娟\n
+　　昨天，有位开发商面对新地王的价格写道：以前，我们的房子卖26000元/平方米，后来，我们对面的地拍出了24026元/平方米，今天，这附近的地居然拍出了42561元/平方米！这是怎样一个市场！几句话道出了多少地产人的心声。地价猛升的背后，不少房企喊出“贴着成本价卖房”，在多数业内人士看来，南京频出的“地王”和买房人的频频出手，促成了房价的看涨预期，但是这个预期的实现仍旧需要时间成本来实现。\n
+　　江苏安家贷金融信息服务有限公司总经理李晓羽表示，回顾一下上海浦东新区和深圳房价的更迭及媒体反应，就能得出简单结论：历史总是那么相似。高地价对应高房价，高房价会对区域内一定产业形成挤出效应，产品洗牌，辅以市级区级主管部门的政策协同，聚集一批高毛利新兴产业，河西大街银行一家紧挨着一家也不合适，金融机构扎堆。有那么多基础产业为金融业做支撑么？没有。有那么多主导机构落户么？没有。那啥意思？相信历史。\n
+　　南京房地产开发建设促进会秘书长张辉表示，随着南京的地铁及轻轨建设愈加完善，很多“偏远”楼盘都将进入人们的视线，接驳上快速交通，距离也不是问题。刚需购房者可以“将眼光放得长远些”，寻找地铁一小时路程内的刚需房源。南京工业大学不动产研究所执行所长吴翔华不止一次表示，购房者不必过于追求新盘，对于现在的刚需客来说，购房的最大矛盾在于总价，“如果经济实力实在无法承担距离主城较近的楼盘，购房者也可考虑主城的二手房。\n
+　　记者刘娟
+    </string>
+    <string name="news_content_3">news_content3</string>
+    <string name="renkouliebiao">人口列表</string>
+    <string name="renkouliebiao2">人口列表2</string>
+    <string name="examplename">安非凡</string>
+    <string name="examplehaoma">320105198705124154</string>
+    <string name="renkoudetail">人口详情</string>
+    <string name="shijianbianhao">事件编号</string>
+    <string name="jinjichengdu">紧急程度</string>
+    <string name="shijianleixing">事件类型</string>
+    <string name="shijianweizhi">事件位置</string>
+    <string name="suoshupianqu">事件所属片区</string>
+    <string name="tijiaoren">提交人</string>
+    <string name="chulishichang">处理时长</string>
+    <string name="zhuangtai">状态</string>
+    <string name="shijianmiaoshu">事件描述</string>
+    <string name="shejiren">事件涉及人</string>
+    <string name="fujian">附件</string>
+    <string name="shijianjilu">事件处理记录</string>
+    <string name="jiean">结案</string>
+    <string name="wancheng">完成</string>
+    <string name="bohui">驳回</string>
+    <string name="liuzhuan">流转</string>
+
+    <string name="hello"></string>
+    <string name="startRecord">开始录音</string>
+    <string name="stopRecord">结束录音</string>
+    <string name="startPlay">开始播放</string>
+    <string name="stopPlay">结束播放</string>
+    <string name="after_not_init">请初始化回调函数!</string>
+</resources>
