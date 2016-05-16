@@ -8,7 +8,6 @@
         android:paddingLeft="@dimen/dp_16"
         android:id="@+id/text_tv"
         android:layout_width="match_parent"
-        android:background="#fff000"
         android:layout_height="@dimen/dp_60"
         android:gravity="center_vertical"
         android:text="1" />

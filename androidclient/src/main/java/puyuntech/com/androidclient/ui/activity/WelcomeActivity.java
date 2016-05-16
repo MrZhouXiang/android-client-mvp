@@ -12,11 +12,20 @@ import java.util.List;
 
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
-import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
+import puyuntech.com.androidclient.model.ListItemModel;
 import puyuntech.com.androidclient.presenter.WelComePresenter;
 import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 import puyuntech.com.androidclient.ui.adapter.WelcomeAdapter;
 
+
+/**
+ * 作者 Administrator
+ * 创建时间 2016/5/16 0016
+ * 描述 首页
+ * 修改时间 2016/5/16 0016
+ * 修改描述 首页
+ * 修改者 Administrator
+ **/
 @ContentView(R.layout.activity_welcome)
 public class WelcomeActivity extends ActivityDirector {
     List data;
@@ -37,15 +46,25 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void initData() {
-        data = new ArrayList();
+        //初始化主导器
         mPresenter = new WelComePresenter(this);
+        data = new ArrayList();
+        layoutManager = new LinearLayoutManager(this);
         adapter = new WelcomeAdapter(this, data, R.layout.item_welcome) {
             @Override
             public void onItemClick(View v, int position) {
-                showShortToast("点击了第" + position + "项:" + data.get(position).toString());
+                ListItemModel model = (ListItemModel) data.get(position);
+                WelComePresenter.ShowType type = (WelComePresenter.ShowType) model.type;
+                switch (type) {
+                    case MVP:
+                        skipIntent(MVPActivity.class, false);
+                        break;
+                    default:
+                        showShortToast("点击了第" + position + "项:" + model.value);
+                        break;
+                }
             }
         };
-        layoutManager = new LinearLayoutManager(this);
     }
 
     @Override
@@ -76,7 +95,7 @@ public class WelcomeActivity extends ActivityDirector {
     }
 
     @Override
-    public void getDataNet(HttpAfterExpand afterExpand) {
+    public void getDataNet() {
 
     }
 

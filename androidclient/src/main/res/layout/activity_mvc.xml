@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="puyuntech.com.androidclient.ui.activity.WelcomeActivity">
+
+    <include layout="@layout/app_title" />
+
+    <EditText
+        android:id="@+id/name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:hint="name" />
+
+    <EditText
+        android:id="@+id/pwd_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:hint="password" />
+
+    <Button
+        android:id="@+id/test_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:text="测试" />
+
+</LinearLayout>

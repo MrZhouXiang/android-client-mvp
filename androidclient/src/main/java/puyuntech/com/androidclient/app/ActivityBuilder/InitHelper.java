@@ -56,7 +56,7 @@ public interface InitHelper {
     /**
      * 获取网络数据
      */
-    void getDataNet(HttpAfterExpand afterExpand);
+    void getDataNet();
 
 
 

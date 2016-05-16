@@ -1,11 +1,11 @@
 package puyuntech.com.androidclient.ui.adapter;
 
 import android.content.Context;
-import android.view.View;
 
 import java.util.List;
 
 import puyuntech.com.androidclient.R;
+import puyuntech.com.androidclient.model.ListItemModel;
 
 /**
  * @作者 Administrator
@@ -15,24 +15,19 @@ import puyuntech.com.androidclient.R;
  * @修改描述
  * @修改者 Administrator
  **/
-public abstract class WelcomeAdapter extends BaseRecAdapter<RecViewHolder> {
+public abstract class WelcomeAdapter extends BaseRecAdapter<ListItemModel> {
 
     public WelcomeAdapter(Context context, List mDatas, int itemLayoutId) {
         super(context, mDatas, itemLayoutId);
     }
 
-    public abstract void onItemClick(View v, int position);
 
     @Override
     public void onBindViewHolder(RecViewHolder holder, final int position) {
-        String ss = String.valueOf(mDatas.get(position));
-        holder.setText(R.id.text_tv, ss);
-        holder.setRootClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClick(v, position);
-            }
-        });
+        //这一句可以统一设置每项的点击事件
+        super.onBindViewHolder(holder, position);
+        ListItemModel model = mDatas.get(position);
+        holder.setText(R.id.text_tv, position + "、" + model.value);
     }
 
     @Override

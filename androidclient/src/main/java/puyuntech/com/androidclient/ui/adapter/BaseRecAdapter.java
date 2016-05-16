@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import puyuntech.com.androidclient.R;
+
 /**
  * @param <T>
  */
@@ -30,6 +32,23 @@ public abstract class BaseRecAdapter<T> extends RecyclerView.Adapter<RecViewHold
         return new RecViewHolder(v);
     }
 
+    /**
+     * item点击事件
+     *
+     * @param v
+     * @param position
+     */
+    public abstract void onItemClick(View v, int position);
+
+    @Override
+    public void onBindViewHolder(RecViewHolder holder, final int position) {
+        holder.setRootClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick(v, position);
+            }
+        });
+    }
 
     public void setDatas(List<T> mDatas) {
         this.mDatas.clear();
@@ -76,7 +95,6 @@ public abstract class BaseRecAdapter<T> extends RecyclerView.Adapter<RecViewHold
     public long getItemId(int position) {
         return position;
     }
-
 
 
 }
