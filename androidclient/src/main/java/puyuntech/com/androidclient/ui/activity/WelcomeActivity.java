@@ -60,6 +60,9 @@ public class WelcomeActivity extends ActivityDirector {
                     case MVP:
                         skipIntent(MVPActivity.class, false);
                         break;
+                    case TITLE:
+                        skipIntent(TitleActivity.class, false);
+                        break;
                     default:
                         showShortToast("点击了第" + position + "项:" + model.value);
                         break;
@@ -100,9 +103,5 @@ public class WelcomeActivity extends ActivityDirector {
 
     }
 
-    @Override
-    public void homeBack() {
-
-    }
 
 }

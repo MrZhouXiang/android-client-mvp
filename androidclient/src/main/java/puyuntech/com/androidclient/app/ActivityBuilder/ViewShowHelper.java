@@ -37,19 +37,17 @@ public interface ViewShowHelper {
      * @param title
      * @param showLeft
      * @param leftId
-     * @param showRight
      * @param rightId
      */
-    void initTitle(String title, boolean showLeft, int leftId, boolean showRight, int rightId);
+    void initTitle(String title, boolean showLeft, int leftId,  int rightId);
 
     /**
      * @param title
      * @param showLeft
      * @param leftId
-     * @param showRight
      * @param rightText 右边文字
      */
-//    void initTitle(String title, boolean showLeft, int leftId, boolean showRight, String rightText);
+    void initTitle(String title, boolean showLeft, int leftId, String rightText);
 
     /**
      * 刷新分页方法

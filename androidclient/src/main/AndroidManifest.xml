@@ -35,14 +35,14 @@
             android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.MVPActivity"
             android:label="@string/app_name"
-            android:theme="@style/LoginTheme"></activity>
-
+            android:theme="@style/LoginTheme" />
 
         <!-- 注册网络广播 -->
         <receiver android:name=".app.NetBroadcastReceiver">
@@ -51,6 +51,9 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ui.activity.TitleActivity"
+            android:theme="@style/LoginTheme"></activity>
     </application>
 
 </manifest>

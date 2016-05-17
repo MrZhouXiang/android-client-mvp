@@ -16,5 +16,9 @@ public interface ListenerHelper {
      */
     void homeBack();
 
+    void rightImgClick();
+
+    void rightTextClick();
+
 
 }

@@ -109,8 +109,5 @@ public class MVPActivity extends ActivityDirector {
 
     }
 
-    @Override
-    public void homeBack() {
 
-    }
 }

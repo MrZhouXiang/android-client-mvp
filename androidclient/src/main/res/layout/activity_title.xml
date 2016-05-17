@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="puyuntech.com.androidclient.ui.activity.TitleActivity">
+
+    <include layout="@layout/app_title" />
+
+    <Button
+        android:id="@+id/no_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:text="无按钮" />
+
+    <Button
+        android:id="@+id/left_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:text="左边按钮" />
+
+    <Button
+        android:id="@+id/left_change_img_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:text="左边按钮替换图片" />
+
+    <Button
+        android:id="@+id/right_text_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:text="右边文字按钮" />
+
+    <Button
+        android:id="@+id/right_img_bt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:gravity="center"
+        android:text="右边图片按钮" />
+
+</LinearLayout>

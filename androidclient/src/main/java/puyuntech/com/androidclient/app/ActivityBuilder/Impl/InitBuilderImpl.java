@@ -1,13 +1,7 @@
 package puyuntech.com.androidclient.app.ActivityBuilder.Impl;
 
-import com.nicodelee.utils.L;
-
-import java.util.ArrayList;
-
 import puyuntech.com.androidclient.app.ActivityBuilder.BuildHelper;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
-import puyuntech.com.androidclient.http.httpContor.Result;
-import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
 
 /**
  * @作者 Administrator
