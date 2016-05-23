@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.nicodelee.utils.ListUtils;
 
 import java.util.ArrayList;
@@ -19,7 +20,6 @@ import puyuntech.com.androidclient.presenter.IUpdateUIListener;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
 import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
 import puyuntech.com.androidclient.presenter.BasePresenter;
-import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 
 
 /**
@@ -70,21 +70,21 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
      * @param mSwipeLayout loading界面
      */
     @Override
-    public void refreshPage(int loadType, List getList, BaseRecAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
-        if (loadType == REFRESH_FLAG) {
-            isHasMore = true;
-            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
-                isHasMore = false;
-            }
-            adapter.setDatas(getList);//重置数据并刷新
-        } else if (loadType == LOAD_MORE_FLAG) {
-            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
-                showToast("全部加载完毕");
-                isHasMore = false;
-            }
-            adapter.addDatas(getList);//重置数据并刷新
-        }
-        if (mSwipeLayout != null)
-            mSwipeLayout.setRefreshing(false);
+    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
+//        if (loadType == REFRESH_FLAG) {
+//            isHasMore = true;
+//            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
+//                isHasMore = false;
+//            }
+//            adapter.setDatas(getList);//重置数据并刷新
+//        } else if (loadType == LOAD_MORE_FLAG) {
+//            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
+//                showToast("全部加载完毕");
+//                isHasMore = false;
+//            }
+//            adapter.addDatas(getList);//重置数据并刷新
+//        }
+//        if (mSwipeLayout != null)
+//            mSwipeLayout.setRefreshing(false);
     }
 }

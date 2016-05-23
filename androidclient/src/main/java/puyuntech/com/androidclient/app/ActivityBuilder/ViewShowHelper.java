@@ -3,9 +3,10 @@ package puyuntech.com.androidclient.app.ActivityBuilder;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import java.util.List;
 
-import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 
 /**
  * 作者 Administrator
@@ -52,6 +53,6 @@ public interface ViewShowHelper {
     /**
      * 刷新分页方法
      */
-    void refreshPage(int loadType, List getList, BaseRecAdapter adapter, SwipeRefreshLayout mSwipeLayout);
+    void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout);
 
 }

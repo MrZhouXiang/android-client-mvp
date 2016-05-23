@@ -57,6 +57,11 @@
         <activity
             android:name=".ui.activity.ListActivity"
             android:theme="@style/LoginTheme"></activity>
+        <activity
+            android:name=".ui.activity.list.PullToRefreshUseActivity"
+            android:theme="@style/LoginTheme"></activity>
+
+
     </application>
 
 </manifest>

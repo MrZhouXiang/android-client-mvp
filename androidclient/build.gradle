@@ -39,6 +39,7 @@ dependencies {
     compile project(':libraries:CommLib')
     compile project(':libraries:ImageViewLibrary')
     compile project(':libraries:library')
+    compile project(':libraries:adapterLibrary')
     compile 'com.android.support:cardview-v7:23.+'
     compile 'com.github.johnkil.android-appmsg:appmsg:1.2.0'
     compile 'com.nineoldandroids:library:2.4.0'

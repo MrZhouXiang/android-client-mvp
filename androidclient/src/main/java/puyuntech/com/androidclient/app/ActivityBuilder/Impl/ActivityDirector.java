@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.nicodelee.utils.ListUtils;
 import com.nicodelee.utils.StringUtils;
 
@@ -23,7 +24,6 @@ import puyuntech.com.androidclient.app.AppDataUtils;
 import puyuntech.com.androidclient.app.BaseAct;
 import puyuntech.com.androidclient.presenter.BasePresenter;
 import puyuntech.com.androidclient.presenter.IUpdateUIListener;
-import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 
 
 /**
@@ -90,19 +90,32 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
      * @param mSwipeLayout loading界面
      */
     @Override
-    public void refreshPage(int loadType, List getList, BaseRecAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
+    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
         if (loadType == REFRESH_FLAG) {
             isHasMore = true;
             if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
                 isHasMore = false;
+                adapter.notifyDataChangedAfterLoadMore(false);
             }
-            adapter.setDatas(getList);//重置数据并刷新
+            adapter.setNewData(getList);
+            adapter.openLoadMore(pageSize, true);
+//            adapter.setDatas(getList);//重置数据并刷新
         } else if (loadType == LOAD_MORE_FLAG) {
-            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
+            if (ListUtils.isEmpty(getList)) {
                 showToast("全部加载完毕");
                 isHasMore = false;
+                adapter.notifyDataChangedAfterLoadMore(false);
+            } else {
+                //加载更多
+                adapter.notifyDataChangedAfterLoadMore(getList, true);
+                //全部加载完毕
+                if (ListUtils.getSize(getList) < pageSize) {
+                    showToast("全部加载完毕");
+                    isHasMore = false;
+                    adapter.notifyDataChangedAfterLoadMore(false);
+                }
             }
-            adapter.addDatas(getList);//重置数据并刷新
+
         }
         if (mSwipeLayout != null)
             mSwipeLayout.setRefreshing(false);

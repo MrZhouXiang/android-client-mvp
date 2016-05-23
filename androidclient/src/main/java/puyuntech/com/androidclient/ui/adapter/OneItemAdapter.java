@@ -2,6 +2,9 @@ package puyuntech.com.androidclient.ui.adapter;
 
 import android.content.Context;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+
 import java.util.List;
 
 import puyuntech.com.androidclient.R;
@@ -15,26 +18,19 @@ import puyuntech.com.androidclient.model.ListItemModel;
  * @修改描述
  * @修改者 Administrator
  **/
-public abstract class OneItemAdapter extends BaseRecAdapter<ListItemModel> {
+public class OneItemAdapter extends BaseQuickAdapter<ListItemModel> {
 
-    public OneItemAdapter(Context context, List mDatas, int itemLayoutId) {
-        super(context, mDatas, itemLayoutId);
+
+    public OneItemAdapter(Context context, int itemLayoutId, List mDatas) {
+        super(context, itemLayoutId, mDatas);
     }
 
 
     @Override
-    public void onBindViewHolder(RecViewHolder holder, final int position) {
-        //这一句可以统一设置每项的点击事件
-        super.onBindViewHolder(holder, position);
-        ListItemModel model = mDatas.get(position);
-        holder.setText(R.id.text_tv, (position + 1) + "、" + model.value);
-    }
-
-    @Override
-    public int getItemCount() {
-        if (mDatas == null) {
-            return 0;
-        }
-        return mDatas.size();
+    protected void convert(BaseViewHolder helper, ListItemModel item) {
+        helper.setText(R.id.text_tv, item.value);
+//                .setOnClickListener(R.id.tweetAvatar, new OnItemChildClickListener())
+//                .setOnClickListener(R.id.tweetName, new OnItemChildClickListener())
+//                .linkify(R.id.tweetText);
     }
 }
