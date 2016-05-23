@@ -27,6 +27,7 @@ public class WelComePresenter extends BasePresenter {
         LIST,//("列表的统一处理"),
         NET_STATUS,//("网络状态监听");
         HTTP,//("网络请求统一处理"),
+        ACTIVITY_MANAGER,//activity统一管理
     }
 
     public List getData() {
@@ -36,6 +37,7 @@ public class WelComePresenter extends BasePresenter {
         data.add(new ListItemModel(ShowType.LIST, "列表的统一处理"));
         data.add(new ListItemModel(ShowType.NET_STATUS, "网络状态监听"));
         data.add(new ListItemModel(ShowType.HTTP, "网络请求统一处理"));
+        data.add(new ListItemModel(ShowType.ACTIVITY_MANAGER, "activity统一管理"));
         return data;
     }
 }

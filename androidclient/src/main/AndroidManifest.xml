@@ -66,6 +66,9 @@
         <activity
             android:name=".ui.activity.HttpActivity"
             android:theme="@style/LoginTheme"></activity>
+        <activity
+            android:name=".ui.activity.ManagerActivity"
+            android:theme="@style/LoginTheme"></activity>
     </application>
 
 </manifest>

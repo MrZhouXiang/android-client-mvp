@@ -25,6 +25,7 @@ import puyuntech.com.androidclient.app.ActivityBuilder.BuildHelper;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
 import puyuntech.com.androidclient.app.AppDataUtils;
 import puyuntech.com.androidclient.app.BaseAct;
+import puyuntech.com.androidclient.app.MyActivityManager;
 import puyuntech.com.androidclient.app.NetBroadcastReceiver;
 import puyuntech.com.androidclient.presenter.BasePresenter;
 import puyuntech.com.androidclient.presenter.IUpdateUIListener;
@@ -75,6 +76,8 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         initBuilder.initAct(this);//初始化方式1:初始化一个activity
         //网络状态监听
         NetBroadcastReceiver.mListeners.add(this);
+        //管理activity
+        MyActivityManager.getInstance().pushOneActivity(this);
     }
 
 

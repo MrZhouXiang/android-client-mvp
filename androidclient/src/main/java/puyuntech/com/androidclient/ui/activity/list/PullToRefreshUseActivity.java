@@ -18,6 +18,7 @@ import java.util.List;
 
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
+import puyuntech.com.androidclient.app.MyActivityManager;
 import puyuntech.com.androidclient.presenter.list.PullToRefreshPresenter;
 import puyuntech.com.androidclient.ui.adapter.QuickAdapter;
 
@@ -166,4 +167,6 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
         });
         mQuickAdapter.addHeaderView(headView);
     }
+
+
 }

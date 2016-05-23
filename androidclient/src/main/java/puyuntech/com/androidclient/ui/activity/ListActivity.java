@@ -14,6 +14,7 @@ import java.util.List;
 
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
+import puyuntech.com.androidclient.app.MyActivityManager;
 import puyuntech.com.androidclient.model.ListItemModel;
 import puyuntech.com.androidclient.presenter.ListPresenter;
 import puyuntech.com.androidclient.ui.activity.list.PullToRefreshUseActivity;
@@ -102,4 +103,6 @@ public class ListActivity extends ActivityDirector implements BaseQuickAdapter.O
 
         }
     }
+
+
 }

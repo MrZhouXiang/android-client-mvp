@@ -83,6 +83,9 @@ public class WelcomeActivity extends ActivityDirector {
                     case HTTP:
                         skipIntent(HttpActivity.class, false);
                         break;
+                    case ACTIVITY_MANAGER:
+                        skipIntent(ManagerActivity.class, false);
+                        break;
                     default:
                         showShortToast("点击了第" + (position + 1) + "项:" + model.value);
                         break;
