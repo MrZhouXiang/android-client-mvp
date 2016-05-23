@@ -22,12 +22,13 @@ public class ListPresenter extends BasePresenter {
     }
 
     public enum ShowType {
-        TEST
+        TEST,
+        PULL_AND_REFRESH
     }
 
     public List getData() {
         List<ListItemModel> data = new ArrayList();
-        data.add(new ListItemModel(ShowType.TEST, "1"));
+        data.add(new ListItemModel(ShowType.PULL_AND_REFRESH, "刷新与分页"));
         data.add(new ListItemModel(ShowType.TEST, "2"));
         data.add(new ListItemModel(ShowType.TEST, "3"));
         data.add(new ListItemModel(ShowType.TEST, "4"));

@@ -99,7 +99,6 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
             }
             adapter.setNewData(getList);
             adapter.openLoadMore(pageSize, true);
-//            adapter.setDatas(getList);//重置数据并刷新
         } else if (loadType == LOAD_MORE_FLAG) {
             if (ListUtils.isEmpty(getList)) {
                 showToast("全部加载完毕");

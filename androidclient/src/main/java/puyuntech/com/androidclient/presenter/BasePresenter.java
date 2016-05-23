@@ -16,6 +16,7 @@ import java.util.Map;
 
 import puyuntech.com.androidclient.app.APP;
 import puyuntech.com.androidclient.R;
+import puyuntech.com.androidclient.app.AppDataUtils;
 
 /**
  * @作者 Administrator
@@ -28,15 +29,11 @@ import puyuntech.com.androidclient.R;
 public abstract class BasePresenter {
     public IUpdateUIListener mIUpdateUIListener;
     public Context context;
+    protected int pageSize = AppDataUtils.pageSize;
 
-    /**
-     * 控件值获取
-     */
-    public enum RefreshType {
-        REFRESH,//刷新
-        LOAD_MORE,//加载更多
 
-    }
+
+
 
     public BasePresenter(Context context) {
         this.context = context;

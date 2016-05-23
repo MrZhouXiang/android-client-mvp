@@ -14,9 +14,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
+import java.util.List;
+
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
-import puyuntech.com.androidclient.presenter.DataServer;
+import puyuntech.com.androidclient.presenter.MVPPresenter;
+import puyuntech.com.androidclient.presenter.list.PullToRefreshPresenter;
 import puyuntech.com.androidclient.ui.adapter.QuickAdapter;
 
 
@@ -31,59 +34,69 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
     private QuickAdapter mQuickAdapter;
     @ViewInject(R.id.swipeLayout)
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private static final int TOTAL_COUNTER = 100;
     private int delayMillis = 1000;
     private int mCurrentCounter = 0;
 
     @Override
     public void onLoadMoreRequested() {
-        mRecyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                if (mCurrentCounter >= TOTAL_COUNTER) {
-                    refreshPage(LOAD_MORE_FLAG, DataServer.getSampleData(5), mQuickAdapter, mSwipeRefreshLayout);
+        ((PullToRefreshPresenter) mPresenter).loadMore();
 
-                } else {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            refreshPage(LOAD_MORE_FLAG, DataServer.getSampleData(pageSize), mQuickAdapter, mSwipeRefreshLayout);
-                            mCurrentCounter = mQuickAdapter.getItemCount();
-                        }
-                    }, delayMillis);
-                }
-            }
-
-
-        });
     }
 
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mQuickAdapter.setNewData(DataServer.getSampleData(pageSize));
-                mQuickAdapter.openLoadMore(pageSize, true);
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-        }, delayMillis);
+        ((PullToRefreshPresenter) mPresenter).refresh();
+
     }
 
 
     @Override
     public Object getValue(Enum type) {
+        PullToRefreshPresenter.ValueGetType type1 = (PullToRefreshPresenter.ValueGetType) type;
+        switch (type1) {
+            case CURRENT_PAGE_SIZE:
+                //获取的值
+                return mQuickAdapter.getItemCount();
+            default:
+                break;
+        }
         return null;
     }
 
     @Override
-    public void updateUI(Object params, Enum type) {
+    public void updateUI(final Object params, Enum type) {
+        PullToRefreshPresenter.UpdateUIType type1 = (PullToRefreshPresenter.UpdateUIType) type;
+        switch (type1) {
+            case LOAD_MORE:
+                //加载更多
+                mRecyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        List l = (List) params;
+                        refreshPage(LOAD_MORE_FLAG, l, mQuickAdapter, mSwipeRefreshLayout);
+                    }
+                });
+                break;
+            case REFRESH:
+                //刷新
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        List l = (List) params;
+                        refreshPage(REFRESH_FLAG, l, mQuickAdapter, mSwipeRefreshLayout);
+                    }
+                }, delayMillis);
+                break;
+            default:
+                break;
+        }
 
     }
 
     @Override
     public void initData() {
+        mPresenter = new PullToRefreshPresenter(this);
         initAdapter();
     }
 

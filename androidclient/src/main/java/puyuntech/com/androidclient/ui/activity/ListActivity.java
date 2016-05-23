@@ -28,7 +28,7 @@ import puyuntech.com.androidclient.ui.adapter.OneItemAdapter;
  * 修改者 Administrator
  **/
 @ContentView(R.layout.activity_list)
-public class ListActivity extends ActivityDirector {
+public class ListActivity extends ActivityDirector implements BaseQuickAdapter.OnRecyclerViewItemClickListener {
     List data;
     BaseQuickAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -62,23 +62,7 @@ public class ListActivity extends ActivityDirector {
 
     @Override
     public void setViewClickListener() {
-        adapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
-                                                       @Override
-                                                       public void onItemClick(View view, int position) {
-                                                           ListItemModel model = (ListItemModel) adapter.getItem(position);
-                                                           ListPresenter.ShowType type = (ListPresenter.ShowType) model.type;
-                                                           switch (type) {
-                                                               case TEST:
-                                                                   skipIntent(PullToRefreshUseActivity.class, false);
-                                                                   break;
-                                                               default:
-                                                                   showShortToast("点击了第" + (position + 1) + "项:" + model.value);
-                                                                   break;
-
-                                                           }
-                                                       }
-                                                   }
-        );
+        adapter.setOnRecyclerViewItemClickListener(this);
     }
 
     @Override
@@ -101,5 +85,21 @@ public class ListActivity extends ActivityDirector {
     @Override
     public void getDataNet() {
 
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        ListItemModel model = (ListItemModel) adapter.getItem(position);
+        ListPresenter.ShowType type = (ListPresenter.ShowType) model.type;
+        switch (type) {
+            case PULL_AND_REFRESH:
+                //刷新与分页
+                skipIntent(PullToRefreshUseActivity.class, false);
+                break;
+            default:
+                showShortToast("点击了第" + (position + 1) + "项:" + model.value);
+                break;
+
+        }
     }
 }

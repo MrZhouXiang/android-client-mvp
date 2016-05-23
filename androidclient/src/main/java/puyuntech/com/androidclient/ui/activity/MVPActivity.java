@@ -96,7 +96,7 @@ public class MVPActivity extends ActivityDirector {
 
     @Override
     public void showTitle() {
-
+        initTitle("MVP", true);
     }
 
     @Override
