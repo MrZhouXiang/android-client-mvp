@@ -53,6 +53,9 @@
 
         <activity
             android:name=".ui.activity.TitleActivity"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:name=".ui.activity.ListActivity"
             android:theme="@style/LoginTheme"></activity>
     </application>
 

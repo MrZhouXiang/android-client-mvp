@@ -10,14 +10,14 @@ import puyuntech.com.androidclient.model.ListItemModel;
 /**
  * @作者 Administrator
  * @创建时间 2016-05-16 下午 13:49
- * @描述 WelcomeAdapter
+ * @描述
  * @修改时间 2016-05-16 下午 13:49
  * @修改描述
  * @修改者 Administrator
  **/
-public abstract class WelcomeAdapter extends BaseRecAdapter<ListItemModel> {
+public abstract class OneItemAdapter extends BaseRecAdapter<ListItemModel> {
 
-    public WelcomeAdapter(Context context, List mDatas, int itemLayoutId) {
+    public OneItemAdapter(Context context, List mDatas, int itemLayoutId) {
         super(context, mDatas, itemLayoutId);
     }
 
@@ -27,7 +27,7 @@ public abstract class WelcomeAdapter extends BaseRecAdapter<ListItemModel> {
         //这一句可以统一设置每项的点击事件
         super.onBindViewHolder(holder, position);
         ListItemModel model = mDatas.get(position);
-        holder.setText(R.id.text_tv, position + "、" + model.value);
+        holder.setText(R.id.text_tv, (position + 1) + "、" + model.value);
     }
 
     @Override

@@ -3,7 +3,7 @@ package puyuntech.com.androidclient.model;
 /**
  * @作者 Administrator
  * @创建时间 2016-05-16 下午 15:20
- * @描述 ListItemModel
+ * @描述 列表item
  * @修改时间 2016-05-16 下午 15:20
  * @修改描述
  * @修改者 Administrator

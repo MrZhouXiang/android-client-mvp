@@ -19,6 +19,7 @@ import puyuntech.com.androidclient.presenter.IUpdateUIListener;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
 import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
 import puyuntech.com.androidclient.presenter.BasePresenter;
+import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 
 
 /**
@@ -49,51 +50,6 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
         initBuilder.initFragment(this);//初始化方式2:初始化一个Fragment
     }
 
-
-//    @Override
-//    public HttpAfterExpand getAfterExpand() {
-//        return afterExpand;
-//    }
-//
-//    @Override
-//    public int getPageFlag() {
-//        return pageFlag;
-//    }
-//
-//    @Override
-//    public void setPageFlag(int pageFlag) {
-//        this.pageFlag = pageFlag;
-//    }
-//
-//    @Override
-//    public List getPageMods() {
-//        return pageMods;
-//    }
-//
-//    @Override
-//    public void setPageMods(List pageMods) {
-//        this.pageMods = pageMods;
-//    }
-
-    /**
-     * 过时
-     */
-//    @Override
-//    @Deprecated
-//    public void initAfterHttp() {
-//
-//    }
-
-    /**
-     * 设置网路请求之后回调
-     *
-//     * @param afterExpand
-     */
-//    @Override
-//    public void setAfterExpand(HttpAfterExpand afterExpand) {
-//        this.afterExpand = afterExpand;
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -106,44 +62,27 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
     }
 
 
-//    @Deprecated
-//    @Override
-//    public void refreshPage() {
-//
-//    }
 
     /**
-     * @param list         原数据
-     * @param loadType
-     * @param mMods        加载数据
-     * @param adapter
-     * @param mSwipeLayout
+     * @param loadType     刷新or加载更多
+     * @param getList      加载数据
+     * @param adapter      需要刷新的adapter
+     * @param mSwipeLayout loading界面
      */
-//    @Override
-    public void refreshPage(List list, int loadType, List mMods, RecyclerView.Adapter adapter, SwipeRefreshLayout mSwipeLayout) {
+    @Override
+    public void refreshPage(int loadType, List getList, BaseRecAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
         if (loadType == REFRESH_FLAG) {
             isHasMore = true;
-            if (list == null) {
-                list = new ArrayList();
-            } else {
-                list.clear();
-            }
-            if (ListUtils.isNotEmpty(mMods)) {
-                list.addAll(mMods);
-            }
-            if (ListUtils.isEmpty(mMods) || ListUtils.getSize(mMods) < pageSize) {
+            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
                 isHasMore = false;
             }
-            adapter.notifyDataSetChanged();
+            adapter.setDatas(getList);//重置数据并刷新
         } else if (loadType == LOAD_MORE_FLAG) {
-            if (ListUtils.isEmpty(mMods) || ListUtils.getSize(mMods) < pageSize) {
+            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
                 showToast("全部加载完毕");
                 isHasMore = false;
             }
-
-            int start = ListUtils.getSize(list);
-            list.addAll(mMods);
-            adapter.notifyItemRangeChanged(start, mMods.size());
+            adapter.addDatas(getList);//重置数据并刷新
         }
         if (mSwipeLayout != null)
             mSwipeLayout.setRefreshing(false);

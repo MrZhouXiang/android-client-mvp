@@ -13,21 +13,21 @@ import java.util.List;
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
 import puyuntech.com.androidclient.model.ListItemModel;
+import puyuntech.com.androidclient.presenter.ListPresenter;
 import puyuntech.com.androidclient.presenter.WelComePresenter;
 import puyuntech.com.androidclient.ui.adapter.BaseRecAdapter;
 import puyuntech.com.androidclient.ui.adapter.OneItemAdapter;
 
-
 /**
  * 作者 Administrator
- * 创建时间 2016/5/16 0016
- * 描述 首页
- * 修改时间 2016/5/16 0016
- * 修改描述 首页
+ * 创建时间 2016/5/23 0023
+ * 描述 列表统一处理
+ * 修改时间 2016/5/23 0023
+ * 修改描述 列表统一处理
  * 修改者 Administrator
  **/
-@ContentView(R.layout.activity_welcome)
-public class WelcomeActivity extends ActivityDirector {
+@ContentView(R.layout.activity_list)
+public class ListActivity extends ActivityDirector {
     List data;
     BaseRecAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -46,24 +46,17 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void initData() {
-        //初始化主导器
-        mPresenter = new WelComePresenter(this);
+        mPresenter = new ListPresenter(this);
         data = new ArrayList();
         layoutManager = new LinearLayoutManager(this);
         adapter = new OneItemAdapter(this, data, R.layout.item_welcome) {
             @Override
             public void onItemClick(View v, int position) {
                 ListItemModel model = (ListItemModel) data.get(position);
-                WelComePresenter.ShowType type = (WelComePresenter.ShowType) model.type;
+                ListPresenter.ShowType type = (ListPresenter.ShowType) model.type;
                 switch (type) {
-                    case MVP:
-                        skipIntent(MVPActivity.class, false);
-                        break;
-                    case TITLE:
-                        skipIntent(TitleActivity.class, false);
-                        break;
-                    case LIST:
-                        skipIntent(ListActivity.class, false);
+                    case TEST:
+                        showShortToast("点击了第" + position + "项:" + model.value);
                         break;
                     default:
                         showShortToast("点击了第" + position + "项:" + model.value);
@@ -75,6 +68,7 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void initView() {
+        //
         recycler_view.setAdapter(adapter);
         recycler_view.setLayoutManager(layoutManager);
     }
@@ -86,24 +80,23 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void getDataLoc() {
+
     }
 
     @Override
     public void showTitle() {
-        initTitle("欢迎", false);
+        initTitle("列表的统一处理", true);
+
     }
 
     @Override
     public void showView() {
-        //刷新界面
-        refreshPage(REFRESH_FLAG, ((WelComePresenter) mPresenter).getData(), adapter, null);
-
+        //刷新列表
+        refreshPage(REFRESH_FLAG, ((ListPresenter) mPresenter).getData(), adapter, null);
     }
 
     @Override
     public void getDataNet() {
 
     }
-
-
 }
