@@ -34,7 +34,7 @@ public class PullToRefreshPresenter extends BasePresenter {
     }
 
     public void refresh() {
-        mIUpdateUIListener.updateUI(DataServer.getSampleData(pageSize), UpdateUIType.REFRESH);
+        mIUpdateUIListener.updateUI(DataServer.getSampleData(0), UpdateUIType.REFRESH);
     }
 
     public void loadMore() {

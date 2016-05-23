@@ -18,7 +18,6 @@ import java.util.List;
 
 import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.Impl.ActivityDirector;
-import puyuntech.com.androidclient.presenter.MVPPresenter;
 import puyuntech.com.androidclient.presenter.list.PullToRefreshPresenter;
 import puyuntech.com.androidclient.ui.adapter.QuickAdapter;
 
@@ -39,13 +38,14 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
 
     @Override
     public void onLoadMoreRequested() {
+        //加载更多
         ((PullToRefreshPresenter) mPresenter).loadMore();
-
     }
 
 
     @Override
     public void onRefresh() {
+        //刷新
         ((PullToRefreshPresenter) mPresenter).refresh();
 
     }
@@ -74,7 +74,7 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
                     @Override
                     public void run() {
                         List l = (List) params;
-                        refreshPage(LOAD_MORE_FLAG, l, mQuickAdapter, mSwipeRefreshLayout);
+                        refreshPage(LOAD_MORE_FLAG, l, mQuickAdapter, mSwipeRefreshLayout, mRecyclerView);
                     }
                 });
                 break;
@@ -84,7 +84,7 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
                     @Override
                     public void run() {
                         List l = (List) params;
-                        refreshPage(REFRESH_FLAG, l, mQuickAdapter, mSwipeRefreshLayout);
+                        refreshPage(REFRESH_FLAG, l, mQuickAdapter, mSwipeRefreshLayout, mRecyclerView);
                     }
                 }, delayMillis);
                 break;
@@ -103,6 +103,7 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
     @Override
     public void initView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mQuickAdapter);
     }
 
@@ -144,8 +145,14 @@ public class PullToRefreshUseActivity extends ActivityDirector implements BaseQu
         mQuickAdapter.openLoadAnimation();
         mCurrentCounter = mQuickAdapter.getItemCount();
         mQuickAdapter.openLoadMore(pageSize, true);//or call mQuickAdapter.setPageSize(PAGE_SIZE);  mQuickAdapter.openLoadMore(true);
-        addHeadView();
+//        addHeadView();
+        setEmpty(mQuickAdapter, mRecyclerView);
+    }
 
+    protected void setEmpty(BaseQuickAdapter adapter, RecyclerView recyclerView) {
+        View emptyView = getLayoutInflater().inflate(R.layout.empty_view, (ViewGroup) recyclerView.getParent(), false);
+        adapter.setEmptyView(emptyView);
+        recyclerView.setAdapter(adapter);
     }
 
     private void addHeadView() {

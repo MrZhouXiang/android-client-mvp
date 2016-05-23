@@ -79,7 +79,7 @@ public class ListActivity extends ActivityDirector implements BaseQuickAdapter.O
     @Override
     public void showView() {
         //刷新列表
-        refreshPage(REFRESH_FLAG, ((ListPresenter) mPresenter).getData(), adapter, null);
+        refreshPage(REFRESH_FLAG, ((ListPresenter) mPresenter).getData(), adapter, null, recycler_view);
     }
 
     @Override

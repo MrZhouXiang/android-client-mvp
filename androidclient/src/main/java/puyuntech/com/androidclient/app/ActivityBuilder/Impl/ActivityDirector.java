@@ -2,9 +2,11 @@ package puyuntech.com.androidclient.app.ActivityBuilder.Impl;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import com.nicodelee.utils.StringUtils;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import puyuntech.com.androidclient.R;
@@ -90,15 +93,21 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
      * @param mSwipeLayout loading界面
      */
     @Override
-    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
+    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout, RecyclerView recyclerView) {
         if (loadType == REFRESH_FLAG) {
             isHasMore = true;
-            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
+            if (ListUtils.isEmpty(getList)) {//无数据
                 isHasMore = false;
                 adapter.notifyDataChangedAfterLoadMore(false);
+            } else if (ListUtils.getSize(getList) < pageSize) {//当前页有数据，没有更多
+                isHasMore = false;
+                adapter.setNewData(getList);
+                adapter.openLoadMore(pageSize, true);
+                adapter.notifyDataChangedAfterLoadMore(false);
+            } else {//有更多数据
+                adapter.setNewData(getList);
+                adapter.openLoadMore(pageSize, true);
             }
-            adapter.setNewData(getList);
-            adapter.openLoadMore(pageSize, true);
         } else if (loadType == LOAD_MORE_FLAG) {
             if (ListUtils.isEmpty(getList)) {
                 showToast("全部加载完毕");
@@ -119,6 +128,7 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         if (mSwipeLayout != null)
             mSwipeLayout.setRefreshing(false);
     }
+
 
 
     /**

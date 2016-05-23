@@ -98,7 +98,7 @@ public class WelcomeActivity extends ActivityDirector {
     @Override
     public void showView() {
         //刷新界面
-        refreshPage(REFRESH_FLAG, ((WelComePresenter) mPresenter).getData(), adapter, null);
+        refreshPage(REFRESH_FLAG, ((WelComePresenter) mPresenter).getData(), adapter, null, recycler_view);
 
     }
 

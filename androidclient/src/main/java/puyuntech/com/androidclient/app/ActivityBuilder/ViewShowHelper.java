@@ -2,6 +2,7 @@ package puyuntech.com.androidclient.app.ActivityBuilder;
 
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
@@ -53,6 +54,6 @@ public interface ViewShowHelper {
     /**
      * 刷新分页方法
      */
-    void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout);
+    void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout, RecyclerView recyclerView);
 
 }

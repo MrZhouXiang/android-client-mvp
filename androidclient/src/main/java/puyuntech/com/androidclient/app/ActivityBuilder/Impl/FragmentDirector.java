@@ -70,7 +70,7 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
      * @param mSwipeLayout loading界面
      */
     @Override
-    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout) {
+    public void refreshPage(int loadType, List getList, BaseQuickAdapter adapter, SwipeRefreshLayout mSwipeLayout,RecyclerView recyclerView) {
 //        if (loadType == REFRESH_FLAG) {
 //            isHasMore = true;
 //            if (ListUtils.isEmpty(getList) || ListUtils.getSize(getList) < pageSize) {
