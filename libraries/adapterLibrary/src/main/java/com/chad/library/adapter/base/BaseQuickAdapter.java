@@ -281,14 +281,12 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<RecyclerV
     @Override
     public int getItemCount() {
         int i = isLoadMore() ? 1 : 0;
-        int count = mData.size() + i;
-//        + getHeaderViewsCount() + getFooterViewsCount();
+        int count = mData.size() + i + getHeaderViewsCount() + getFooterViewsCount();
         mEmptyEnable = false;
         if (count == 0) {
             mEmptyEnable = true;
             count += getmEmptyViewCount();
         }
-        count += getHeaderViewsCount() + getFooterViewsCount();
         return count;
     }
 
@@ -297,8 +295,7 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<RecyclerV
     public int getItemViewType(int position) {
         if (mHeaderView != null && position == 0) {
             return HEADER_VIEW;
-//        } else if (mEmptyView != null && getItemCount() == 1 && mEmptyEnable) {
-        } else if (mEmptyView != null) {
+        } else if (mEmptyView != null && getItemCount() == 1 && mEmptyEnable) {
             return EMPTY_VIEW;
         } else if (position == mData.size() + getHeaderViewsCount()) {
             if (mNextLoadEnable)
