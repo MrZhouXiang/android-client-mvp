@@ -1,6 +1,8 @@
 package puyuntech.com.androidclient.app.ActivityBuilder;
 
 
+import puyuntech.com.androidclient.app.NetBroadcastReceiver;
+
 /**
  * 作者 Administrator
  * 创建时间 2016/4/21 0021
@@ -9,7 +11,7 @@ package puyuntech.com.androidclient.app.ActivityBuilder;
  * 修改描述
  * 修改者 Administrator
  **/
-public interface BuildHelper extends InitHelper, ViewShowHelper, ListenerHelper {
+public interface BuildHelper extends InitHelper, ViewShowHelper, ListenerHelper, NetBroadcastReceiver.netEventHandler {
 
 
 }

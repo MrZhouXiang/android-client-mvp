@@ -27,7 +27,7 @@ public class LoginHttpProxy extends BaseHttpImpl implements LoginHttp, puyuntech
     public RequestParams loginCath(String account, String password, HttpAfterExpand afterHttp) {
         if (!checkHttp()) {
 //            L.e("网络已经断开,请检查网路");
-            showToast("网络已经断开,请检查网路");
+            showToast("网络已经断开,请检查网络");
             return null;
         }
         return this.m_LoginHttp.loginCath(account, password, afterHttp);
@@ -36,7 +36,7 @@ public class LoginHttpProxy extends BaseHttpImpl implements LoginHttp, puyuntech
     @Override
     public RequestParams login(String account, String password, HttpAfterExpand afterHttp) {
         if (!checkHttp()) {
-            showToast("网络已经断开,请检查网路");
+            showToast("网络已经断开,请检查网络");
             return null;
         }
         return this.m_LoginHttp.login(account, password, afterHttp);

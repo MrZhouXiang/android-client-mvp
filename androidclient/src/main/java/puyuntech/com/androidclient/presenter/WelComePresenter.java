@@ -25,8 +25,8 @@ public class WelComePresenter extends BasePresenter {
         MVP,//("MVP模式"),//
         TITLE,//("头部统一处理"),//
         LIST,//("列表的统一处理"),
-        HTTP,//("网络请求统一处理"),
         NET_STATUS,//("网络状态监听");
+        HTTP,//("网络请求统一处理"),
     }
 
     public List getData() {
@@ -34,8 +34,8 @@ public class WelComePresenter extends BasePresenter {
         data.add(new ListItemModel(ShowType.MVP, "MVP模式"));
         data.add(new ListItemModel(ShowType.TITLE, "头部统一处理"));
         data.add(new ListItemModel(ShowType.LIST, "列表的统一处理"));
-        data.add(new ListItemModel(ShowType.HTTP, "网络请求统一处理"));
         data.add(new ListItemModel(ShowType.NET_STATUS, "网络状态监听"));
+        data.add(new ListItemModel(ShowType.HTTP, "网络请求统一处理"));
         return data;
     }
 }

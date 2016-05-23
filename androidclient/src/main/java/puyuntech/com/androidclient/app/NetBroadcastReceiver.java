@@ -4,9 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import puyuntech.com.androidclient.utils.NetWorkUtils;
-
 import java.util.ArrayList;
+
+import puyuntech.com.androidclient.utils.NetWorkUtils;
 
 /**
  * 作者：zx

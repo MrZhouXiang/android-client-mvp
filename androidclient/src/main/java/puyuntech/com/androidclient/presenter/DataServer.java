@@ -4,6 +4,10 @@ package puyuntech.com.androidclient.presenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import puyuntech.com.androidclient.http.httpContor.HttpManager;
+import puyuntech.com.androidclient.http.httpContor.Result;
+import puyuntech.com.androidclient.http.httpContor.base.HttpAfterExpand;
+import puyuntech.com.androidclient.http.httpContor.base.LoginHttp;
 import puyuntech.com.androidclient.model.MultipleItem;
 import puyuntech.com.androidclient.model.MySection;
 import puyuntech.com.androidclient.model.Status;
@@ -102,6 +106,5 @@ public class DataServer {
         }
         return list;
     }
-
 
 }

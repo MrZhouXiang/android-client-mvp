@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationHandler;
 
 import puyuntech.com.androidclient.app.APP;
 import puyuntech.com.androidclient.http.httpContor.base.HttpFactory;
+import puyuntech.com.androidclient.http.httpContor.base.LoginHttp;
 
 
 /**
@@ -45,12 +46,12 @@ public class HttpManager extends HttpFactory {
             Toast.makeText(APP.getInstance(), "请用接口来获取http请求类!", Toast.LENGTH_SHORT).show();
             throw new NotInterFaceException("请用接口来获取http请求类!");
         }
-//        if (c.equals(LoginHttp.class)) {
-//            mHttp = (T) LoginHttpImpl.getMHttpImpl();//获取原始类
-//            //是否需要动态代理
-//            if (needProxy)
-//                mHttp = (T) getProxy((LoginHttp) mHttp);//获取代理类
-//        }
+        if (c.equals(LoginHttp.class)) {
+            mHttp = (T) LoginHttpImpl.getMHttpImpl();//获取原始类
+            //是否需要动态代理
+            if (needProxy)
+                mHttp = (T) getProxy((LoginHttp) mHttp);//获取代理类
+        }
 //        if (c.equals(RenKouHttp.class)) {
 //            mHttp = (T) RenKouHttpImpl.getMHttpImpl();
 //            if (needProxy)

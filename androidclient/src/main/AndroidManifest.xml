@@ -56,12 +56,16 @@
             android:theme="@style/LoginTheme" />
         <activity
             android:name=".ui.activity.ListActivity"
-            android:theme="@style/LoginTheme"></activity>
+            android:theme="@style/LoginTheme" />
         <activity
             android:name=".ui.activity.list.PullToRefreshUseActivity"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:name=".ui.activity.NetStatusActivity"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:name=".ui.activity.HttpActivity"
             android:theme="@style/LoginTheme"></activity>
-
-
     </application>
 
 </manifest>

@@ -77,6 +77,12 @@ public class WelcomeActivity extends ActivityDirector {
                     case LIST:
                         skipIntent(ListActivity.class, false);
                         break;
+                    case NET_STATUS:
+                        skipIntent(NetStatusActivity.class, false);
+                        break;
+                    case HTTP:
+                        skipIntent(HttpActivity.class, false);
+                        break;
                     default:
                         showShortToast("点击了第" + (position + 1) + "项:" + model.value);
                         break;

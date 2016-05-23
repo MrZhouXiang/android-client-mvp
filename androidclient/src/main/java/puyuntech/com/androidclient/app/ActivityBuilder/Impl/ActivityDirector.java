@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.nicodelee.utils.ListUtils;
 import com.nicodelee.utils.StringUtils;
+import com.nicodelee.utils.T;
 
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -25,8 +25,10 @@ import puyuntech.com.androidclient.app.ActivityBuilder.BuildHelper;
 import puyuntech.com.androidclient.app.ActivityBuilder.InitBuilder;
 import puyuntech.com.androidclient.app.AppDataUtils;
 import puyuntech.com.androidclient.app.BaseAct;
+import puyuntech.com.androidclient.app.NetBroadcastReceiver;
 import puyuntech.com.androidclient.presenter.BasePresenter;
 import puyuntech.com.androidclient.presenter.IUpdateUIListener;
+import puyuntech.com.androidclient.utils.NetWorkUtils;
 
 
 /**
@@ -71,6 +73,8 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         super.onCreate(savedInstanceState);
         initBuilder = new InitBuilderImpl();//建造者实现类
         initBuilder.initAct(this);//初始化方式1:初始化一个activity
+        //网络状态监听
+        NetBroadcastReceiver.mListeners.add(this);
     }
 
 
@@ -98,6 +102,7 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
             isHasMore = true;
             if (ListUtils.isEmpty(getList)) {//无数据
                 isHasMore = false;
+                adapter.setNewData(new ArrayList());
                 adapter.notifyDataChangedAfterLoadMore(false);
             } else if (ListUtils.getSize(getList) < pageSize) {//当前页有数据，没有更多
                 isHasMore = false;
@@ -128,7 +133,6 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         if (mSwipeLayout != null)
             mSwipeLayout.setRefreshing(false);
     }
-
 
 
     /**
@@ -253,4 +257,12 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
         finish();
     }
 
+    @Override
+    public void onNetChange() {
+        if (NetWorkUtils.getNetworkState(this) == NetWorkUtils.NETWORN_NONE) {
+            T.showLong(this, "网络不可以使用,请链接网络");
+        } else {
+            T.showLong(this, "网络可以使用:" + NetWorkUtils.getNetworkStrByState(NetWorkUtils.getNetworkState(this)));
+        }
+    }
 }
