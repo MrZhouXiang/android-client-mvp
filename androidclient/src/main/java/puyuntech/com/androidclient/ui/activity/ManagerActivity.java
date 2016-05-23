@@ -80,6 +80,7 @@ public class ManagerActivity extends ActivityDirector {
     public void homeBack() {
         //退出所有activity
         MyActivityManager.getInstance().finishAllActivity();
+        //打开主页
         skipIntent(WelcomeActivity.class, true);
     }
 }
