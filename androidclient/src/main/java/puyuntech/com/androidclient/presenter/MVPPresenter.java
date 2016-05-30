@@ -21,7 +21,7 @@ public class MVPPresenter extends BasePresenter {
         PWD//获取密码
     }
 
-    public enum UpdateUIType {
+    public enum ShowType {
         SHOW_NAME_PWD,//显示用户名密码
     }
 
@@ -36,7 +36,7 @@ public class MVPPresenter extends BasePresenter {
         // 处理数据,这边只是做了一个对密码的加密，更多复杂算法都可以在此处理
         String showTest = "name:" + name + ",\n加密后的password:\n" + md5(pwd);
         // 更新UI
-        mIUpdateUIListener.updateUI(showTest, UpdateUIType.SHOW_NAME_PWD);
+        mIUpdateUIListener.updateUI(showTest, ShowType.SHOW_NAME_PWD);
     }
 
     /**

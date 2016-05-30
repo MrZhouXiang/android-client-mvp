@@ -10,7 +10,7 @@ import puyuntech.com.androidclient.http.httpContor.base.LoginHttp;
 /**
  * @作者 Administrator
  * @创建时间 2016-05-16 下午 13:41
- * @描述 列表主导器
+ * @描述 网络请求主导器
  * @修改时间 2016-05-16 下午 13:41
  * @修改描述
  * @修改者 Administrator

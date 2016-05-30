@@ -61,7 +61,7 @@ public class MVPActivity extends ActivityDirector {
 
     @Override
     public void updateUI(Object params, Enum type) {
-        MVPPresenter.UpdateUIType type1 = (MVPPresenter.UpdateUIType) type;
+        MVPPresenter.ShowType type1 = (MVPPresenter.ShowType) type;
         switch (type1) {
             case SHOW_NAME_PWD:
                 //展示输入的用户名密码
