@@ -34,6 +34,7 @@ public class PullToRefreshPresenter extends BasePresenter {
     }
 
     public void refresh() {
+        //刷新，获取空数据，以便演示无数据的情况
         mIUpdateUIListener.updateUI(DataServer.getSampleData(0), UpdateUIType.REFRESH);
     }
 

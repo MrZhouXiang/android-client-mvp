@@ -87,4 +87,70 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
 //        if (mSwipeLayout != null)
 //            mSwipeLayout.setRefreshing(false);
     }
+
+    /**
+     * 初始化头部
+     *
+     * @param title
+     * @param showLeft 是否显示左边按钮
+     */
+    @Override
+    public void initTitle(String title, boolean showLeft) {
+        //标题展示
+        initTitle(title, showLeft, -1);
+    }
+
+    /**
+     * 初始化头部
+     *
+     * @param title    标题
+     * @param showLeft 是否显示左边按钮
+     * @param leftId   左边按钮id
+     */
+    @Override
+    public void initTitle(String title, boolean showLeft, int leftId) {
+        initTitle(title, showLeft, leftId, -1);
+    }
+
+    /**
+     * 初始化头部 右边有文字
+     *
+     * @param title
+     * @param showLeft
+     * @param leftId
+     * @param rightStr 右边文字
+     */
+    @Override
+    public void initTitle(String title, boolean showLeft, int leftId, String rightStr) {
+
+    }
+
+    /**
+     * 初始化头部 右边有图片
+     *
+     * @param title
+     * @param showLeft
+     * @param leftId
+     * @param rightId  右边图片id
+     */
+    @Override
+    public void initTitle(String title, boolean showLeft, int leftId, int rightId) {
+        //标题展示
+
+    }
+
+    @Override
+    public void rightImgClick() {
+
+    }
+
+    @Override
+    public void rightTextClick() {
+
+    }
+
+
+    @Override
+    public void homeBack() {
+    }
 }
