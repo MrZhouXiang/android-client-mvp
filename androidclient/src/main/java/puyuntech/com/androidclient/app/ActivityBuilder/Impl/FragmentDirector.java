@@ -13,6 +13,7 @@ import com.nicodelee.utils.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import puyuntech.com.androidclient.R;
 import puyuntech.com.androidclient.app.ActivityBuilder.BuildHelper;
 import puyuntech.com.androidclient.app.AppDataUtils;
 import puyuntech.com.androidclient.app.BaseFragment;
@@ -97,47 +98,47 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
     @Override
     public void initTitle(String title, boolean showLeft) {
         //标题展示
-        initTitle(title, showLeft, -1);
+//        initTitle(title, R.mipmap.ic_return,null, -1);
     }
-
-    /**
-     * 初始化头部
-     *
-     * @param title    标题
-     * @param showLeft 是否显示左边按钮
-     * @param leftId   左边按钮id
-     */
-    @Override
-    public void initTitle(String title, boolean showLeft, int leftId) {
-        initTitle(title, showLeft, leftId, -1);
-    }
-
-    /**
-     * 初始化头部 右边有文字
-     *
-     * @param title
-     * @param showLeft
-     * @param leftId
-     * @param rightStr 右边文字
-     */
-    @Override
-    public void initTitle(String title, boolean showLeft, int leftId, String rightStr) {
-
-    }
-
-    /**
-     * 初始化头部 右边有图片
-     *
-     * @param title
-     * @param showLeft
-     * @param leftId
-     * @param rightId  右边图片id
-     */
-    @Override
-    public void initTitle(String title, boolean showLeft, int leftId, int rightId) {
-        //标题展示
-
-    }
+//
+//    /**
+//     * 初始化头部
+//     *
+//     * @param title    标题
+//     * @param showLeft 是否显示左边按钮
+//     * @param leftId   左边按钮id
+//     */
+//    @Override
+//    public void initTitle(String title, boolean showLeft, int leftId) {
+//        initTitle(title, showLeft, leftId, -1);
+//    }
+//
+//    /**
+//     * 初始化头部 右边有文字
+//     *
+//     * @param title
+//     * @param showLeft
+//     * @param leftId
+//     * @param rightStr 右边文字
+//     */
+//    @Override
+//    public void initTitle(String title, boolean showLeft, int leftId, String rightStr) {
+//
+//    }
+//
+//    /**
+//     * 初始化头部 右边有图片
+//     *
+//     * @param title
+//     * @param showLeft
+//     * @param leftId
+//     * @param rightId  右边图片id
+//     */
+//    @Override
+//    public void initTitle(String title, boolean showLeft, int leftId, int rightId) {
+//        //标题展示
+//
+//    }
 
     @Override
     public void rightImgClick() {
@@ -149,6 +150,11 @@ public abstract class FragmentDirector extends BaseFragment implements BuildHelp
 
     }
 
+
+    @Override
+    public void leftImgClick() {
+
+    }
 
     @Override
     public void homeBack() {

@@ -27,29 +27,36 @@ public interface ViewShowHelper {
      * @param showReturn
      */
     void initTitle(String title, boolean showReturn);
-
+    /**
+     * 不用系统控件
+     * 使用自定义的控件
+     *
+     * @param title
+     * @param leftId
+     */
+    void initTitle(String title, int leftId, String rightStr, int rightId);
     /**
      * @param title
      * @param showLeft
      * @param leftId
      */
-    void initTitle(String title, boolean showLeft, int leftId);
-
-    /**
-     * @param title
-     * @param showLeft
-     * @param leftId
-     * @param rightId
-     */
-    void initTitle(String title, boolean showLeft, int leftId,  int rightId);
-
-    /**
-     * @param title
-     * @param showLeft
-     * @param leftId
-     * @param rightText 右边文字
-     */
-    void initTitle(String title, boolean showLeft, int leftId, String rightText);
+//    void initTitle(String title, boolean showLeft, int leftId);
+//
+//    /**
+//     * @param title
+//     * @param showLeft
+//     * @param leftId
+//     * @param rightId
+//     */
+//    void initTitle(String title, boolean showLeft, int leftId,  int rightId);
+//
+//    /**
+//     * @param title
+//     * @param showLeft
+//     * @param leftId
+//     * @param rightText 右边文字
+//     */
+//    void initTitle(String title, boolean showLeft, int leftId, String rightText);
 
     /**
      * 刷新分页方法

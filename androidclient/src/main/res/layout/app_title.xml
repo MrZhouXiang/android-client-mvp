@@ -1,22 +1,57 @@
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/background"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    android:background="@color/colorPrimary">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/left_rl"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentLeft="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/left_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_gravity="center_vertical"
+                android:allowUndo="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                android:src="@mipmap/ic_search"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/left_dot_iv"
+                android:layout_width="@dimen/dp_10"
+                android:layout_height="@dimen/dp_10"
+                android:layout_alignParentRight="true"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_6"
+                android:allowUndo="true"
+                android:background="@color/red"
+                android:visibility="gone" />
+        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/title_tv"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
             android:gravity="center_vertical"
             android:text="@string/app_name"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/sp_20" />
 
         <ImageView
@@ -41,11 +76,12 @@
             android:layout_alignWithParentIfMissing="false"
             android:layout_gravity="center_vertical"
             android:allowUndo="true"
-            android:text="OK"
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="@dimen/dp_16"
             android:paddingRight="@dimen/dp_16"
             android:src="@mipmap/ic_search"
+            android:text="OK"
+            android:textColor="@color/white"
             android:visibility="gone" />
 
 

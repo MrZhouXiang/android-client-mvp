@@ -20,5 +20,9 @@ public interface ListenerHelper {
 
     void rightTextClick();
 
+    /**
+     * 头部左边按钮键事件
+     */
+    void leftImgClick();
 
 }

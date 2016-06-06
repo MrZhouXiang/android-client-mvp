@@ -55,19 +55,26 @@ public class TitleActivity extends ActivityDirector {
     private void ClickEvent(View view) {
         switch (view.getId()) {
             case R.id.no_bt:
-                initTitle("无按钮", false);
+//                initTitle("无按钮", false);
+                initTitle("无按钮", -1, null, -1);
                 break;
             case R.id.left_bt:
-                initTitle("左边按钮", true);
+//                initTitle("左边按钮", true);
+                initTitle("左边按钮", R.mipmap.ic_return, null, -1);
+
                 break;
             case R.id.left_change_img_bt:
-                initTitle("左边按钮替换图片", true, R.mipmap.ic_downarrow);
+//                initTitle("左边按钮替换图片", true, R.mipmap.ic_downarrow);
+                initTitle("左边按钮替换图片", R.mipmap.ic_downarrow, null, -1);
+//                initTitle("左边按钮替换图片", true, R.mipmap.ic_downarrow);
                 break;
             case R.id.right_text_bt:
-                initTitle("右边文字按钮", true, -1, "OK");
+//                initTitle("右边文字按钮", true, -1, "OK");
+                initTitle("右边文字按钮", R.mipmap.ic_downarrow, "OK", -1);
                 break;
             case R.id.right_img_bt:
-                initTitle("右边图片按钮", true, -1, R.mipmap.ic_search);
+//                initTitle("右边图片按钮", true, -1, R.mipmap.ic_search);
+                initTitle("右边图片按钮", R.mipmap.ic_downarrow, null, R.mipmap.ic_search);
                 break;
             default:
                 break;
@@ -76,7 +83,8 @@ public class TitleActivity extends ActivityDirector {
 
     @Override
     public void showTitle() {
-        initTitle("头部显示统一处理", true);
+        initTitle("头部显示统一处理", -1, null, -1);
+//        initTitle("头部显示统一处理", true);
     }
 
     @Override
@@ -91,12 +99,14 @@ public class TitleActivity extends ActivityDirector {
 
     @Override
     public void homeBack() {
-        //左边按钮事件
+    }
+
+    @Override
+    public void leftImgClick() {
         showShortToast("你点击了头部左边的按钮");
         finish();
     }
 
-    @Override
     public void rightImgClick() {
         showShortToast("你点击了头部右边的图片按钮");
     }

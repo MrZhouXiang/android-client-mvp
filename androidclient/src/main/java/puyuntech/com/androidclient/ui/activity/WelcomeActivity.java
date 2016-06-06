@@ -101,7 +101,8 @@ public class WelcomeActivity extends ActivityDirector {
 
     @Override
     public void showTitle() {
-        initTitle("欢迎", false);
+        initTitle("欢迎", -1, null, -1);
+//        initTitle("欢迎", false);
     }
 
     @Override
