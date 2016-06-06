@@ -154,7 +154,12 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
     @Override
     public void initTitle(String title, boolean showLeft) {
         //标题展示
-        initTitle(title, R.mipmap.ic_return,null, -1);
+        if (showLeft) {
+            initTitle(title, R.mipmap.ic_return, null, -1);
+        } else {
+            initTitle(title, -1, null, -1);
+
+        }
     }
 
     /**
@@ -225,11 +230,11 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
 
     /**
      * 初始化头部 右边有文字
-     *
-//     * @param title
-//     * @param showLeft
-//     * @param leftId
-//     * @param rightStr 右边文字
+     * <p>
+     * //     * @param title
+     * //     * @param showLeft
+     * //     * @param leftId
+     * //     * @param rightStr 右边文字
      */
 //    @Override
 //    public void initTitle(String title, boolean showLeft, int leftId, String rightStr) {
@@ -305,7 +310,6 @@ public abstract class ActivityDirector extends BaseAct implements BuildHelper, I
 //            right_tv.setVisibility(View.GONE);
 //        }
 //    }
-
     @Override
     public void rightImgClick() {
 
